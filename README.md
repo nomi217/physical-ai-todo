@@ -502,7 +502,7 @@ Perfect for learning production-grade development!
 ## 📞 Contact & Support
 
 **Author:** Nauman Khalid
-**Email:** nauman.khalid@example.com
+**Email:** naumankhalid217@gmail.com
 **GitHub:** [@nomi217](https://github.com/nomi217)
 
 **Issues:** [GitHub Issues](https://github.com/nomi217/physical-ai-todo/issues)
