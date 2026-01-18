@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "FlowTask",
+    "subtitle": "Productividad Sin Esfuerzo, Diseño Hermoso"
+  },
+  "dashboard": {
+    "stats": {
+      "total": "Total",
+      "active": "Activo",
+      "completed": "Completado"
+    },
+    "createTask": "Crear Nueva Tarea",
+    "yourTasks": "Tus Tareas"
+  },
+  "filters": {
+    "title": "Filtros y Búsqueda",
+    "clearAll": "Limpiar Todo",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar tareas...",
+    "priority": "Prioridad",
+    "allPriorities": "Todas las Prioridades",
+    "highPriority": "Alta Prioridad",
+    "mediumPriority": "Prioridad Media",
+    "lowPriority": "Baja Prioridad",
+    "status": "Estado",
+    "allTasks": "Todas las Tareas",
+    "activeOnly": "Solo Activas",
+    "completedOnly": "Solo Completadas",
+    "tags": "Etiquetas",
+    "tagsPlaceholder": "trabajo,urgente (separadas por comas)",
+    "sortBy": "Ordenar Por",
+    "dateCreated": "Fecha de Creación",
+    "dateUpdated": "Fecha de Actualización",
+    "titleAZ": "Título (A-Z)",
+    "order": "Orden",
+    "descending": "Descendente",
+    "ascending": "Ascendente"
+  },
+  "taskForm": {
+    "editTask": "Editar Tarea",
+    "createTask": "Crear Nueva Tarea",
+    "title": "Título",
+    "titlePlaceholder": "Ingresa el título de la tarea...",
+    "description": "Descripción",
+    "descriptionPlaceholder": "Ingresa la descripción de la tarea...",
+    "priority": "Prioridad",
+    "lowPriority": "Baja Prioridad",
+    "mediumPriority": "Prioridad Media",
+    "highPriority": "Alta Prioridad",
+    "tags": "Etiquetas",
+    "tagsPlaceholder": "Agregar etiquetas (presiona Enter)...",
+    "addTag": "Agregar",
+    "saving": "Guardando...",
+    "updateTask": "Actualizar Tarea",
+    "createTaskButton": "Crear Tarea",
+    "cancel": "Cancelar",
+    "titleRequired": "Por favor ingresa un título para la tarea",
+    "saveFailed": "Error al guardar la tarea. Por favor intenta de nuevo."
+  },
+  "taskList": {
+    "noTasks": "No se encontraron tareas",
+    "noTasksDesc": "¡Comienza creando una nueva tarea arriba!"
+  },
+  "taskItem": {
+    "high": "Alta Prioridad",
+    "medium": "Media",
+    "low": "Baja",
+    "created": "Creada:",
+    "updated": "Actualizada:",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "deleting": "Eliminando...",
+    "deleteConfirm": "¿Estás seguro de que deseas eliminar esta tarea?",
+    "updateFailed": "Error al actualizar la tarea",
+    "deleteFailed": "Error al eliminar la tarea"
+  },
+  "landing": {
+    "hero": {
+      "title1": "Productividad Sin Esfuerzo,",
+      "title2": "Diseño Hermoso",
+      "subtitle": "Experimenta el futuro de la gestión de tareas",
+      "cta": "Comienza Tu Viaje Gratis →"
+    },
+    "nav": {
+      "signin": "Iniciar Sesión",
+      "getStarted": "Comenzar Gratis"
+    },
+    "footer": {
+      "subtitle": "Productividad Sin Esfuerzo, Diseño Hermoso",
+      "poweredBy": "Desarrollado por",
+      "author": "Nauman Khalid",
+      "copyright": "© 2025 FlowTask. Todos los derechos reservados."
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Inicia sesión en tu cuenta",
+      "email": "Dirección de Correo",
+      "password": "Contraseña",
+      "button": "Iniciar Sesión",
+      "loading": "Iniciando sesión...",
+      "github": "Continuar con GitHub",
+      "noAccount": "¿No tienes cuenta?",
+      "signupLink": "Regístrate gratis",
+      "divider": "o continúa con"
+    },
+    "footer": {
+      "poweredBy": "Desarrollado por",
+      "author": "Nauman Khalid"
+    }
+  }
+}

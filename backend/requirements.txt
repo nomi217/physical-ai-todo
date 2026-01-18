@@ -1,0 +1,65 @@
+# ============================
+# FastAPI and core
+# ============================
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+
+# ============================
+# Async compatibility (CRITICAL)
+# ============================
+anyio>=3.7.1,<4.0.0
+httpx==0.25.2
+
+# ============================
+# Database
+# ============================
+sqlmodel==0.0.14
+psycopg2-binary==2.9.9
+psycopg[binary]>=3.2.2
+alembic==1.13.0
+
+# ============================
+# Auth
+# ============================
+python-jose[cryptography]==3.5.0
+passlib[bcrypt]==1.7.4
+bcrypt==3.2.2
+
+# ============================
+# AI
+# ============================
+openai==1.3.5
+anthropic==0.7.8
+Pillow>=10.0.0
+
+# ============================
+# Data processing
+# ============================
+pandas==2.1.4
+
+# ============================
+# Email
+# ============================
+emails==0.6
+resend==0.8.0
+
+# ============================
+# Utilities
+# ============================
+python-dotenv==1.0.0
+pydantic[email]==2.5.2
+pydantic-settings==2.1.0
+email-validator==2.1.0
+
+
+# ============================
+# Healthcheck support
+# ============================
+requests>=2.31.0
+
+# ============================
+# Task Reminders & Notifications
+# ============================
+apscheduler==3.10.4
+icalendar==5.0.11

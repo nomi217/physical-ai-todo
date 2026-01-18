@@ -1,0 +1,38 @@
+apiVersion: v2
+name: todo-app
+description: A Helm chart for Physical AI Todo Application with Chatbot
+type: application
+
+# Application version (semantic versioning)
+version: 1.0.0
+
+# Version of the application being deployed
+appVersion: "1.0.0"
+
+keywords:
+  - todo
+  - chatbot
+  - ai
+  - kubernetes
+  - nextjs
+  - fastapi
+
+maintainers:
+  - name: Ahsan
+    email: your-email@example.com
+
+# Minimum Kubernetes version required
+kubeVersion: ">=1.24.0"
+
+# Dependencies (if any)
+dependencies: []
+
+# Icon for the chart (optional)
+icon: https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.png
+
+# Home page (optional)
+home: https://github.com/yourusername/physical-ai-todo
+
+# Source code repository
+sources:
+  - https://github.com/yourusername/physical-ai-todo

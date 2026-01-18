@@ -1,0 +1,59 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-app-ingress
+  namespace: production
+  annotations:
+    # CORS headers
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+
+    # SSL/TLS (uncomment when cert-manager is setup)
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+    # Proxy settings
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+spec:
+  ingressClassName: nginx
+  # Uncomment for HTTPS/TLS
+  # tls:
+  # - hosts:
+  #   - your-domain.com
+  #   secretName: todo-tls-secret
+  rules:
+  # Update with your domain or use nip.io with LoadBalancer IP
+  # Example: 157-230-123-45.nip.io
+  - host: 161-35-250-151.nip.io
+    http:
+      paths:
+      # Backend API routes
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-backend
+            port:
+              number: 8000
+
+      # Health check
+      - path: /health
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-backend
+            port:
+              number: 8000
+
+      # Frontend routes (catch-all)
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-frontend
+            port:
+              number: 3000

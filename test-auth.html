@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth Cookie Test</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #0f0; }
+        button { padding: 10px 20px; margin: 5px; font-size: 16px; cursor: pointer; }
+        .log { background: #000; padding: 10px; margin: 10px 0; border: 1px solid #0f0; overflow-x: auto; }
+        .success { color: #0f0; }
+        .error { color: #f00; }
+        input { padding: 10px; margin: 5px; width: 300px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Auth Cookie Debugging Tool</h1>
+    <div>
+        <h3>Step 1: Login</h3>
+        <input type="email" id="email" placeholder="Email" value="nauman.khalid@example.com" />
+        <input type="password" id="password" placeholder="Password" value="QuickPass123" />
+        <button onclick="testLogin()">Login</button>
+    </div>
+
+    <div>
+        <h3>Step 2: Create Task</h3>
+        <input type="text" id="task-title" placeholder="Task title" value="Test Task" />
+        <button onclick="testCreateTask()">Create Task</button>
+    </div>
+
+    <div>
+        <h3>Step 3: Check Cookies</h3>
+        <button onclick="checkCookies()">Show All Cookies</button>
+    </div>
+
+    <div id="log" class="log"></div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api/v1';
+
+        function log(message, isError = false) {
+            const logDiv = document.getElementById('log');
+            const p = document.createElement('p');
+            p.className = isError ? 'error' : 'success';
+            p.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logDiv.appendChild(p);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        async function testLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            log(`Attempting login with: ${email}`);
+
+            try {
+                const response = await fetch(`${API_BASE}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include', // CRITICAL!
+                    body: JSON.stringify({ email, password })
+                });
+
+                log(`Response status: ${response.status}`);
+                log(`Response headers: ${JSON.stringify([...response.headers])}`);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`✓ Login SUCCESS! User: ${data.user.email}`, false);
+                    log(`Cookie in response: ${response.headers.get('set-cookie') || 'NOT VISIBLE (httponly)'}`, false);
+
+                    // Check if cookie was actually set
+                    setTimeout(checkCookies, 100);
+                } else {
+                    const error = await response.json();
+                    log(`✗ Login FAILED: ${error.detail}`, true);
+                }
+            } catch (err) {
+                log(`✗ ERROR: ${err.message}`, true);
+            }
+        }
+
+        async function testCreateTask() {
+            const title = document.getElementById('task-title').value;
+
+            log(`Attempting to create task: "${title}"`);
+            log(`Sending credentials: include`);
+
+            try {
+                const response = await fetch(`${API_BASE}/tasks`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include', // CRITICAL!
+                    body: JSON.stringify({
+                        title: title,
+                        description: 'Test task from debug tool',
+                        priority: 'medium'
+                    })
+                });
+
+                log(`Response status: ${response.status}`);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`✓ Task created! ID: ${data.id}`, false);
+                } else {
+                    const error = await response.json();
+                    log(`✗ Task creation FAILED: ${error.detail}`, true);
+                    log(`This means cookie was NOT sent or is invalid!`, true);
+                }
+            } catch (err) {
+                log(`✗ ERROR: ${err.message}`, true);
+            }
+        }
+
+        function checkCookies() {
+            log(`All cookies: ${document.cookie || 'NONE'}`, false);
+            log(`Note: HttpOnly cookies won't show here (security feature)`, false);
+        }
+
+        log('Debug tool loaded. Try Step 1 first.', false);
+    </script>
+</body>
+</html>

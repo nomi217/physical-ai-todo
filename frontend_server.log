@@ -1,0 +1,1217 @@
+
+> physical-ai-todo-frontend@0.1.0 dev
+> next dev -p 3001
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3001
+   - Environments: .env.local
+
+ ✓ Ready in 3.7s
+ ○ Compiling / ...
+ ✓ Compiled / in 3.4s (540 modules)
+ ✓ Compiled in 690ms (272 modules)
+ ○ Compiling /landing ...
+ ✓ Compiled /landing in 1353ms (1114 modules)
+ ○ Compiling /auth/signin ...
+ ✓ Compiled /auth/signin in 806ms (1160 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1799ms (1180 modules)
+ ✓ Compiled /chat in 478ms (1186 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 654ms (1190 modules)
+ ✓ Compiled in 1256ms (1161 modules)
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 722ms (64 modules)
+ ✓ Compiled /not-found in 448ms (1152 modules)
+ ✓ Compiled in 240ms (64 modules)
+ ✓ Compiled in 160ms (64 modules)
+ ✓ Compiled /auth/signin in 347ms (590 modules)
+ ✓ Compiled in 1396ms (1161 modules)
+ ✓ Compiled in 444ms (598 modules)
+ ✓ Compiled in 592ms (598 modules)
+ ○ Compiling /auth/signup ...
+ ✓ Compiled /auth/signup in 1147ms (1173 modules)
+ ○ Compiling /auth/signin ...
+ ✓ Compiled /auth/signin in 1490ms (591 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 1972ms (1196 modules)
+ ✓ Compiled in 240ms (64 modules)
+ ✓ Compiled in 128ms (64 modules)
+ ✓ Compiled in 1344ms (1191 modules)
+ ✓ Compiled in 1258ms (1191 modules)
+ ✓ Compiled in 856ms (1191 modules)
+ ⨯ ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\Users\Ahsan\physical-ai-todo\frontend\app\chat\page.tsx[0m:123:1]
+ [2m123[0m |   ];
+ [2m124[0m | 
+ [2m125[0m |   return (
+ [2m126[0m |     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+     : [31;1m     ^^^[0m
+ [2m127[0m |       <div className="max-w-6xl mx-auto px-4 py-8">
+ [2m128[0m |         {/* Auth Warning Banner */}
+ [2m129[0m |         {!authLoading && !user && (
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\Users\Ahsan\physical-ai-todo\frontend\app\chat\page.tsx[0m:123:1]
+ [2m123[0m |   ];
+ [2m124[0m | 
+ [2m125[0m |   return (
+ [2m126[0m |     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+     : [31;1m     ^^^[0m
+ [2m127[0m |       <div className="max-w-6xl mx-auto px-4 py-8">
+ [2m128[0m |         {/* Auth Warning Banner */}
+ [2m129[0m |         {!authLoading && !user && (
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ ✓ Compiled /not-found in 1483ms (1342 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './796.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js:1:14273
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js:1:14314)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:59:84
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:59:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/chat'
+}
+ ⨯ Error: Cannot find module './329.js'
+Require stack:
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\lib\start-server.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1365:15)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:287
+    at Object.<anonymous> (C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\pages\_document.js:1:328)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\.next\\server\\app\\not-found.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Ahsan\\physical-ai-todo\\frontend\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found_client-reference-manifest.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/not-found_client-reference-manifest' in C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found_client-reference-manifest.js', but to 'Error: Can't resolve '../../../../.next/server/app/not-found_client-reference-manifest' in 'C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/not-found_client-reference-manifest (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found_client-reference-manifest.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 992ms (1356 modules)
+ ✓ Compiled in 844ms (1356 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/next-themes' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js', but to 'Error: Can't resolve './vendor-chunks/next-themes' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/next-themes (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@tanstack' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@tanstack.js', but to 'Error: Can't resolve './vendor-chunks/@tanstack' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@tanstack (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@tanstack.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@swc' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@swc.js', but to 'Error: Can't resolve './vendor-chunks/@swc' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@swc (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@swc.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/next' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next.js', but to 'Error: Can't resolve './vendor-chunks/next' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/next (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\chat\page.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\export\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 1190ms (1361 modules)
+ ✓ Compiled in 1202ms (1349 modules)
+ ⨯ Internal error: Error: Could not find the module "C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\client\link.js#" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265192
+    at eN (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265387)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:279942
+    at Array.toJSON (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:281132)
+    at stringify (<anonymous>)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267488
+    at ez (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267567)
+    at eH (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267968)
+    at Timeout._onTimeout (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:264466)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+ ⨯ Internal error: Error: Could not find the module "C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\client\link.js#" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265192
+    at eN (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265387)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:279942
+    at Array.toJSON (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:281132)
+    at stringify (<anonymous>)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267488
+    at ez (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267567)
+    at eH (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267968)
+    at Timeout._onTimeout (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:264466)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "3168244267"
+ ⨯ Internal error: Error: Could not find the module "C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\client\link.js#" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265192
+    at eN (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265387)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:279942
+    at Array.toJSON (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:281132)
+    at stringify (<anonymous>)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267488
+    at ez (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267567)
+    at eH (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267968)
+    at Timeout._onTimeout (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:264466)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+ ⨯ Internal error: Error: Could not find the module "C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\client\link.js#" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265192
+    at eN (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265387)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:279942
+    at Array.toJSON (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:281132)
+    at stringify (<anonymous>)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267488
+    at ez (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267567)
+    at eH (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267968)
+    at Timeout._onTimeout (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:264466)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "3168244267"
+ ⨯ Internal error: Error: Could not find the module "C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\client\link.js#" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265192
+    at eN (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265387)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:279942
+    at Array.toJSON (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:281132)
+    at stringify (<anonymous>)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267488
+    at ez (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267567)
+    at eH (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267968)
+    at Timeout._onTimeout (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:264466)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+ ⨯ Internal error: Error: Could not find the module "C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\client\link.js#" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265192
+    at eN (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:265387)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:279942
+    at Array.toJSON (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:281132)
+    at stringify (<anonymous>)
+    at C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267488
+    at ez (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267567)
+    at eH (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:267968)
+    at Timeout._onTimeout (C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:264466)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "3168244267"
+ ✓ Compiled in 379ms (725 modules)
+ ✓ Compiled in 934ms (1363 modules)
+ ✓ Compiled in 735ms (1359 modules)
+ ✓ Compiled in 1069ms (1359 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\framer-motion.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/framer-motion' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\framer-motion.js', but to 'Error: Can't resolve './vendor-chunks/framer-motion' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/framer-motion (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\framer-motion.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\landing\page.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\landing\page.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/next-themes' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js', but to 'Error: Can't resolve './vendor-chunks/next-themes' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/next-themes (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\landing\page.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\landing\page.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled /not-found in 326ms (638 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/next-themes' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js', but to 'Error: Can't resolve './vendor-chunks/next-themes' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/next-themes (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@tanstack' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@tanstack.js', but to 'Error: Can't resolve './vendor-chunks/@tanstack' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@tanstack (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@tanstack.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 942ms (1362 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/next-themes' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js', but to 'Error: Can't resolve './vendor-chunks/next-themes' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/next-themes (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\next-themes.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@tanstack' in C:\Users\Ahsan\physical-ai-todo\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@tanstack.js', but to 'Error: Can't resolve './vendor-chunks/@tanstack' in 'C:\Users\Ahsan\physical-ai-todo\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@tanstack (expected C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\vendor-chunks\@tanstack.js)
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\.next\server\app\not-found.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\worker.js
+<w>  at file dependencies C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Ahsan\physical-ai-todo\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+[?25h

@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "FlowTask",
+    "subtitle": "Effortless Productivity, Beautiful Design"
+  },
+  "dashboard": {
+    "stats": {
+      "total": "Total",
+      "active": "Active",
+      "completed": "Completed"
+    },
+    "createTask": "Create New Task",
+    "yourTasks": "Your Tasks"
+  },
+  "filters": {
+    "title": "Filters & Search",
+    "clearAll": "Clear All",
+    "search": "Search",
+    "searchPlaceholder": "Search tasks...",
+    "priority": "Priority",
+    "allPriorities": "All Priorities",
+    "highPriority": "High Priority",
+    "mediumPriority": "Medium Priority",
+    "lowPriority": "Low Priority",
+    "status": "Status",
+    "allTasks": "All Tasks",
+    "activeOnly": "Active Only",
+    "completedOnly": "Completed Only",
+    "tags": "Tags",
+    "tagsPlaceholder": "work,urgent (comma-separated)",
+    "sortBy": "Sort By",
+    "dateCreated": "Date Created",
+    "dateUpdated": "Date Updated",
+    "titleAZ": "Title (A-Z)",
+    "order": "Order",
+    "descending": "Descending",
+    "ascending": "Ascending"
+  },
+  "taskForm": {
+    "editTask": "Edit Task",
+    "createTask": "Create New Task",
+    "title": "Title",
+    "titlePlaceholder": "Enter task title...",
+    "description": "Description",
+    "descriptionPlaceholder": "Enter task description...",
+    "priority": "Priority",
+    "lowPriority": "Low Priority",
+    "mediumPriority": "Medium Priority",
+    "highPriority": "High Priority",
+    "tags": "Tags",
+    "tagsPlaceholder": "Add tags (press Enter)...",
+    "addTag": "Add",
+    "saving": "Saving...",
+    "updateTask": "Update Task",
+    "createTaskButton": "Create Task",
+    "cancel": "Cancel",
+    "titleRequired": "Please enter a task title",
+    "saveFailed": "Failed to save task. Please try again."
+  },
+  "taskList": {
+    "noTasks": "No tasks found",
+    "noTasksDesc": "Get started by creating a new task above!"
+  },
+  "taskItem": {
+    "high": "High Priority",
+    "medium": "Medium",
+    "low": "Low",
+    "created": "Created:",
+    "updated": "Updated:",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "deleteConfirm": "Are you sure you want to delete this task?",
+    "updateFailed": "Failed to update task",
+    "deleteFailed": "Failed to delete task"
+  },
+  "landing": {
+    "hero": {
+      "title1": "Effortless Productivity,",
+      "title2": "Beautiful Design",
+      "subtitle": "Experience the future of task management",
+      "cta": "Start Your Free Journey →"
+    },
+    "nav": {
+      "signin": "Sign In",
+      "getStarted": "Get Started Free"
+    },
+    "footer": {
+      "subtitle": "Effortless Productivity, Beautiful Design",
+      "poweredBy": "Powered by",
+      "author": "Nauman Khalid",
+      "copyright": "© 2025 FlowTask. All rights reserved."
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Sign in to your account",
+      "email": "Email Address",
+      "password": "Password",
+      "button": "Sign In",
+      "loading": "Signing in...",
+      "github": "Continue with GitHub",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up for free",
+      "divider": "or continue with"
+    },
+    "footer": {
+      "poweredBy": "Powered by",
+      "author": "Nauman Khalid"
+    }
+  }
+}

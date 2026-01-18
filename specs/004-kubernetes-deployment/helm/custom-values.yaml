@@ -1,0 +1,26 @@
+# Minikube Custom Values
+secrets:
+  enabled: true
+  data:
+    openai-api-key: ""
+
+backend:
+  replicaCount: 1
+  image:
+    repository: todo-backend
+    tag: latest
+    pullPolicy: Never
+
+frontend:
+  replicaCount: 1
+  image:
+    repository: todo-frontend
+    tag: latest
+    pullPolicy: Never
+  service:
+    type: NodePort
+
+postgres:
+  enabled: true
+  storage:
+    size: 1Gi

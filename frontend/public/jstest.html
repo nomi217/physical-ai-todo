@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .success {
+            background: #10b981;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .error {
+            background: #ef4444;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #059669;
+        }
+        .counter {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-size: 48px; margin-bottom: 30px;">Pure JavaScript Test</h1>
+
+        <!-- This will be shown ONLY if JavaScript runs -->
+        <div id="js-success" style="display: none;" class="success">
+            ✅ SUCCESS! JavaScript IS Working!
+        </div>
+
+        <!-- This will be shown if JavaScript does NOT run -->
+        <noscript>
+            <div class="error">
+                ⚠️ JAVASCRIPT IS DISABLED!<br>
+                Please enable JavaScript in your browser settings.
+            </div>
+        </noscript>
+
+        <div class="box">
+            <h2>Click Counter Test</h2>
+            <div class="counter" id="counter">0</div>
+            <button onclick="incrementCounter()">Click Me!</button>
+            <button onclick="testAlert()">Test Alert</button>
+        </div>
+
+        <div class="box">
+            <h3>Test Results:</h3>
+            <ul id="results" style="font-size: 18px; line-height: 2;">
+                <li>Waiting for tests...</li>
+            </ul>
+        </div>
+
+        <div class="box" style="background: rgba(255,255,255,0.9); color: #000;">
+            <h3>Instructions:</h3>
+            <ol style="line-height: 2;">
+                <li><strong>If you see a GREEN box above:</strong> JavaScript works! The problem is with React/Next.js</li>
+                <li><strong>If you see a RED box:</strong> JavaScript is disabled. Enable it in browser settings</li>
+                <li><strong>If buttons work:</strong> Your browser is fine, React has a bug</li>
+                <li><strong>If nothing happens:</strong> JavaScript is blocked by extension/antivirus</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // This runs immediately - no React, no frameworks
+        console.log('✅ JavaScript is running!');
+
+        // Show success message
+        document.getElementById('js-success').style.display = 'block';
+
+        let count = 0;
+
+        function incrementCounter() {
+            count++;
+            document.getElementById('counter').textContent = count;
+            console.log('Counter:', count);
+            updateResults();
+        }
+
+        function testAlert() {
+            alert('Alert works! JavaScript is functioning.');
+            updateResults();
+        }
+
+        function updateResults() {
+            const results = document.getElementById('results');
+            results.innerHTML = `
+                <li>✅ Page loaded successfully</li>
+                <li>✅ JavaScript executed</li>
+                <li>✅ DOM manipulation working</li>
+                <li>✅ Click counter: ${count} clicks</li>
+                <li>✅ Browser: ${navigator.userAgent}</li>
+            `;
+        }
+
+        // Run initial test
+        updateResults();
+
+        console.log('All tests completed successfully!');
+    </script>
+</body>
+</html>

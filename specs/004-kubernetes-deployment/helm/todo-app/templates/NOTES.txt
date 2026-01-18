@@ -1,0 +1,77 @@
+🎉 Thank you for installing {{ .Chart.Name }}!
+
+Your release is named {{ .Release.Name }}.
+
+📋 **Application Components:**
+{{ if .Values.frontend.enabled }}
+✅ Frontend (Next.js):   {{ .Values.frontend.replicaCount }} replicas
+{{ end }}
+{{ if .Values.backend.enabled }}
+✅ Backend (FastAPI):    {{ .Values.backend.replicaCount }} replicas
+{{ end }}
+{{ if .Values.postgres.enabled }}
+✅ Database (PostgreSQL): Enabled
+{{ end }}
+
+🚀 **Getting Started:**
+
+1. Check the status of your pods:
+   kubectl get pods -l app.kubernetes.io/instance={{ .Release.Name }}
+
+2. Watch pods until they're running:
+   kubectl get pods -w
+
+3. Get the application URL:
+{{- if .Values.frontend.enabled }}
+  {{- if eq .Values.frontend.service.type "LoadBalancer" }}
+   export SERVICE_IP=$(kubectl get svc {{ include "todo-app.fullname" . }}-frontend -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+   echo "Frontend URL: http://$SERVICE_IP:{{ .Values.frontend.service.port }}"
+  {{- else if eq .Values.frontend.service.type "NodePort" }}
+   export NODE_PORT=$(kubectl get svc {{ include "todo-app.fullname" . }}-frontend -o jsonpath='{.spec.ports[0].nodePort}')
+   export NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[0].address}')
+   echo "Frontend URL: http://$NODE_IP:$NODE_PORT"
+  {{- else }}
+   kubectl port-forward svc/{{ include "todo-app.fullname" . }}-frontend {{ .Values.frontend.service.port }}:{{ .Values.frontend.service.port }}
+   echo "Frontend URL: http://localhost:{{ .Values.frontend.service.port }}"
+  {{- end }}
+{{- end }}
+
+4. Access backend API docs:
+{{- if .Values.backend.enabled }}
+   kubectl port-forward svc/{{ include "todo-app.fullname" . }}-backend {{ .Values.backend.service.port }}:{{ .Values.backend.service.port }}
+   echo "API Docs: http://localhost:{{ .Values.backend.service.port }}/docs"
+{{- end }}
+
+🔧 **Useful kubectl-ai Commands:**
+
+   kubectl-ai "show me the status of all todo-app pods"
+   kubectl-ai "why are my pods not running?"
+   kubectl-ai "scale the backend to 3 replicas"
+   kubectl-ai "check the logs of the backend pod"
+
+📊 **Monitoring:**
+
+   # View logs
+   kubectl logs -f -l app.kubernetes.io/component=backend
+   kubectl logs -f -l app.kubernetes.io/component=frontend
+
+   # Describe pods
+   kubectl describe pod -l app.kubernetes.io/instance={{ .Release.Name }}
+
+🎓 **Learn More:**
+
+   - Chart Repository: {{ .Chart.Home }}
+   - Documentation: https://helm.sh/docs/
+   - kubectl-ai: https://github.com/sozercan/kubectl-ai
+
+⚠️  **Important Notes:**
+
+{{ if .Values.secrets.enabled }}
+   - Remember to set your OpenAI API key:
+     helm upgrade {{ .Release.Name }} . --set secrets.data.openai-api-key="your-key-here"
+{{- end }}
+
+   - For production, update database credentials in values.yaml
+   - Consider enabling ingress for external access
+
+Happy cloud-native development! 🚀

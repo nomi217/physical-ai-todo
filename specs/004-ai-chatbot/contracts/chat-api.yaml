@@ -1,0 +1,386 @@
+openapi: 3.0.3
+info:
+  title: Phase III AI Chatbot API
+  description: |
+    RESTful API for AI-powered conversational task management.
+
+    **Features**:
+    - Stateless chat endpoint with conversation persistence
+    - OpenAI GPT-4 Turbo integration for natural language understanding
+    - MCP (Model Context Protocol) tool calling for task operations
+    - Multi-language support (English, Urdu, Arabic, Spanish, French, German)
+
+    **Authentication**: JWT tokens from Phase II (Bearer token or httpOnly cookie)
+  version: 1.0.0
+  contact:
+    name: Physical AI Todo Team
+    url: https://github.com/nomi217/physical-ai-todo
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+  - url: https://api.physical-ai-todo.com
+    description: Production server (future)
+
+tags:
+  - name: chat
+    description: AI chatbot endpoints
+
+paths:
+  /api/v1/chat:
+    post:
+      summary: Send message to AI chatbot
+      description: |
+        **Stateless chat endpoint** that:
+        1. Loads conversation history from database (recent 20 messages)
+        2. Appends user message to history
+        3. Calls OpenAI GPT-4 Turbo with MCP tools
+        4. Saves assistant response to database
+        5. Returns AI response with tool execution results
+
+        **Conversation ID**:
+        - If provided: Continues existing conversation
+        - If omitted: Creates new conversation automatically
+
+        **Authentication**: Requires valid JWT token (Phase II auth system)
+      operationId: sendChatMessage
+      tags:
+        - chat
+      security:
+        - bearerAuth: []
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+            examples:
+              newConversation:
+                summary: New conversation (no conversation_id)
+                value:
+                  message: "Add buy groceries to my list"
+              existingConversation:
+                summary: Continue existing conversation
+                value:
+                  conversation_id: 42
+                  message: "Show me my tasks"
+              complexQuery:
+                summary: Complex multi-step query
+                value:
+                  conversation_id: 42
+                  message: "Delete all my completed tasks and show me what's left"
+      responses:
+        '200':
+          description: Successful AI response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+              examples:
+                simpleResponse:
+                  summary: Simple text response (no tools called)
+                  value:
+                    conversation_id: 42
+                    response: "Of course! What would you like help with?"
+                    tool_calls: []
+                toolExecution:
+                  summary: Response with tool execution
+                  value:
+                    conversation_id: 42
+                    response: "I've added 'Buy groceries' to your task list!"
+                    tool_calls:
+                      - id: "call_abc123"
+                        type: "function"
+                        function:
+                          name: "add_task"
+                          arguments: '{"user_id": 5, "title": "Buy groceries", "description": "", "priority": "medium", "tags": []}'
+                          result: '{"status": "success", "task_id": 15, "message": "Created task \'Buy groceries\' with ID 15"}'
+                multipleTools:
+                  summary: Multiple tool calls in one response
+                  value:
+                    conversation_id: 42
+                    response: "I've added the task and marked task 3 as complete!"
+                    tool_calls:
+                      - id: "call_abc123"
+                        type: "function"
+                        function:
+                          name: "add_task"
+                          arguments: '{"user_id": 5, "title": "Buy groceries"}'
+                          result: '{"status": "success", "task_id": 15}'
+                      - id: "call_def456"
+                        type: "function"
+                        function:
+                          name: "complete_task"
+                          arguments: '{"user_id": 5, "task_id": 3}'
+                          result: '{"status": "success", "message": "Marked task 3 as complete"}'
+        '400':
+          description: Bad request (invalid input)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                emptyMessage:
+                  summary: Empty message
+                  value:
+                    error: "Bad Request"
+                    detail: "Message cannot be empty"
+                    status_code: 400
+                invalidConversationId:
+                  summary: Invalid conversation ID format
+                  value:
+                    error: "Bad Request"
+                    detail: "conversation_id must be a positive integer"
+                    status_code: 400
+        '401':
+          description: Unauthorized (missing or invalid JWT token)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                missingToken:
+                  summary: No authentication provided
+                  value:
+                    error: "Unauthorized"
+                    detail: "Authentication required. Please log in."
+                    status_code: 401
+                invalidToken:
+                  summary: Invalid or expired token
+                  value:
+                    error: "Unauthorized"
+                    detail: "Invalid authentication token"
+                    status_code: 401
+        '403':
+          description: Forbidden (trying to access another user's conversation)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                wrongUser:
+                  summary: Conversation belongs to different user
+                  value:
+                    error: "Forbidden"
+                    detail: "You don't have permission to access this conversation"
+                    status_code: 403
+        '429':
+          description: Rate limit exceeded (OpenAI API or application-level)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                openaiRateLimit:
+                  summary: OpenAI rate limit hit
+                  value:
+                    error: "Rate Limit Exceeded"
+                    detail: "Too many AI requests. Please try again in a moment."
+                    status_code: 429
+                    retry_after: 60
+        '500':
+          description: Internal server error (database, OpenAI API, or application error)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                databaseError:
+                  summary: Database connection failure
+                  value:
+                    error: "Internal Server Error"
+                    detail: "Unable to save conversation. Please try again."
+                    status_code: 500
+                openaiError:
+                  summary: OpenAI API failure
+                  value:
+                    error: "Internal Server Error"
+                    detail: "AI service temporarily unavailable. Please try again."
+                    status_code: 500
+        '503':
+          description: Service unavailable (database connection pool exhausted or OpenAI API down)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                serviceUnavailable:
+                  summary: Service temporarily down
+                  value:
+                    error: "Service Unavailable"
+                    detail: "Service is temporarily unavailable. Please try again in a moment."
+                    status_code: 503
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        JWT token from Phase II authentication system.
+
+        **How to obtain**: POST /api/v1/auth/login with email and password
+
+        **Usage**: Include in Authorization header: `Authorization: Bearer <token>`
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: access_token
+      description: |
+        HttpOnly cookie containing JWT token (set by Phase II auth system).
+
+        **Automatically sent by browser** - no manual header required.
+
+  schemas:
+    ChatRequest:
+      type: object
+      required:
+        - message
+      properties:
+        conversation_id:
+          type: integer
+          format: int32
+          minimum: 1
+          description: |
+            ID of existing conversation to continue.
+
+            - **Omit for new conversation** (server will auto-generate ID)
+            - **Include to continue existing conversation**
+          example: 42
+        message:
+          type: string
+          minLength: 1
+          maxLength: 5000
+          description: |
+            User's message to the AI chatbot.
+
+            **Supported languages**: English, Urdu, Arabic, Spanish, French, German
+
+            **Natural language examples**:
+            - "Add buy groceries to my list"
+            - "Show me my high-priority tasks"
+            - "Mark task 5 as complete"
+            - "Delete all my completed tasks"
+          example: "Add buy groceries to my list"
+
+    ChatResponse:
+      type: object
+      required:
+        - conversation_id
+        - response
+        - tool_calls
+      properties:
+        conversation_id:
+          type: integer
+          format: int32
+          description: |
+            ID of the conversation (auto-generated if this was first message).
+
+            **Frontend should store this** to continue conversation later.
+          example: 42
+        response:
+          type: string
+          description: |
+            AI assistant's natural language response.
+
+            **May reference tool executions** (e.g., "I've added the task!")
+          example: "I've added 'Buy groceries' to your task list!"
+        tool_calls:
+          type: array
+          description: |
+            Array of MCP tools executed by the AI during this conversation turn.
+
+            - **Empty array []** if no tools were called (pure text response)
+            - **Populated** if AI executed task operations
+          items:
+            $ref: '#/components/schemas/ToolCall'
+          example:
+            - id: "call_abc123"
+              type: "function"
+              function:
+                name: "add_task"
+                arguments: '{"user_id": 5, "title": "Buy groceries", "description": "", "priority": "medium", "tags": []}'
+                result: '{"status": "success", "task_id": 15, "message": "Created task \'Buy groceries\' with ID 15"}'
+
+    ToolCall:
+      type: object
+      required:
+        - id
+        - type
+        - function
+      properties:
+        id:
+          type: string
+          description: OpenAI-generated tool call ID (for tracking)
+          example: "call_abc123"
+        type:
+          type: string
+          enum: [function]
+          description: Tool call type (always "function" in Phase III)
+          example: "function"
+        function:
+          type: object
+          required:
+            - name
+            - arguments
+            - result
+          properties:
+            name:
+              type: string
+              description: MCP tool name (see mcp-tools.yaml for full list)
+              enum:
+                - add_task
+                - list_tasks
+                - complete_task
+                - delete_task
+                - update_task
+                - set_priority
+                - manage_tags
+                - manage_subtasks
+                - search_tasks
+                - filter_tasks
+              example: "add_task"
+            arguments:
+              type: string
+              format: json
+              description: |
+                JSON string of tool parameters passed to MCP tool.
+
+                **Must parse to extract values** (not a JSON object, a string containing JSON)
+              example: '{"user_id": 5, "title": "Buy groceries", "description": "", "priority": "medium", "tags": []}'
+            result:
+              type: string
+              format: json
+              description: |
+                JSON string of tool execution result.
+
+                **Includes status, data, and confirmation message**
+              example: '{"status": "success", "task_id": 15, "message": "Created task \'Buy groceries\' with ID 15"}'
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - detail
+        - status_code
+      properties:
+        error:
+          type: string
+          description: Error category (Bad Request, Unauthorized, etc.)
+          example: "Internal Server Error"
+        detail:
+          type: string
+          description: Human-readable error message (safe to display to user)
+          example: "AI service temporarily unavailable. Please try again."
+        status_code:
+          type: integer
+          format: int32
+          description: HTTP status code (matches response status)
+          example: 500
+        retry_after:
+          type: integer
+          format: int32
+          description: Seconds to wait before retrying (only for 429 responses)
+          example: 60

@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "فلو ٹاسک",
+    "subtitle": "آسان پیداواری صلاحیت، خوبصورت ڈیزائن"
+  },
+  "dashboard": {
+    "stats": {
+      "total": "کل",
+      "active": "فعال",
+      "completed": "مکمل"
+    },
+    "createTask": "نیا کام بنائیں",
+    "yourTasks": "آپ کے کام"
+  },
+  "filters": {
+    "title": "فلٹرز اور تلاش",
+    "clearAll": "تمام صاف کریں",
+    "search": "تلاش کریں",
+    "searchPlaceholder": "کام تلاش کریں...",
+    "priority": "ترجیح",
+    "allPriorities": "تمام ترجیحات",
+    "highPriority": "زیادہ ترجیح",
+    "mediumPriority": "درمیانی ترجیح",
+    "lowPriority": "کم ترجیح",
+    "status": "حالت",
+    "allTasks": "تمام کام",
+    "activeOnly": "صرف فعال",
+    "completedOnly": "صرف مکمل",
+    "tags": "ٹیگز",
+    "tagsPlaceholder": "کام،فوری (کوما سے الگ)",
+    "sortBy": "ترتیب دیں",
+    "dateCreated": "تخلیق کی تاریخ",
+    "dateUpdated": "اپڈیٹ کی تاریخ",
+    "titleAZ": "عنوان (الف سے ی)",
+    "order": "ترتیب",
+    "descending": "نزولی",
+    "ascending": "صعودی"
+  },
+  "taskForm": {
+    "editTask": "کام میں ترمیم کریں",
+    "createTask": "نیا کام بنائیں",
+    "title": "عنوان",
+    "titlePlaceholder": "کام کا عنوان درج کریں...",
+    "description": "تفصیل",
+    "descriptionPlaceholder": "کام کی تفصیل درج کریں...",
+    "priority": "ترجیح",
+    "lowPriority": "کم ترجیح",
+    "mediumPriority": "درمیانی ترجیح",
+    "highPriority": "زیادہ ترجیح",
+    "tags": "ٹیگز",
+    "tagsPlaceholder": "ٹیگز شامل کریں (Enter دبائیں)...",
+    "addTag": "شامل کریں",
+    "saving": "محفوظ ہو رہا ہے...",
+    "updateTask": "کام اپڈیٹ کریں",
+    "createTaskButton": "کام بنائیں",
+    "cancel": "منسوخ کریں",
+    "titleRequired": "براہ مہربانی کام کا عنوان درج کریں",
+    "saveFailed": "کام محفوظ کرنے میں ناکام۔ براہ مہربانی دوبارہ کوشش کریں۔"
+  },
+  "taskList": {
+    "noTasks": "کوئی کام نہیں ملا",
+    "noTasksDesc": "اوپر ایک نیا کام بنا کر شروع کریں!"
+  },
+  "taskItem": {
+    "high": "زیادہ ترجیح",
+    "medium": "درمیانی",
+    "low": "کم",
+    "created": "بنایا گیا:",
+    "updated": "اپڈیٹ کیا گیا:",
+    "edit": "ترمیم کریں",
+    "delete": "حذف کریں",
+    "deleting": "حذف ہو رہا ہے...",
+    "deleteConfirm": "کیا آپ واقعی یہ کام حذف کرنا چاہتے ہیں؟",
+    "updateFailed": "کام اپڈیٹ کرنے میں ناکام",
+    "deleteFailed": "کام حذف کرنے میں ناکام"
+  },
+  "landing": {
+    "hero": {
+      "title1": "آسان پیداواری صلاحیت،",
+      "title2": "خوبصورت ڈیزائن",
+      "subtitle": "ٹاسک مینجمنٹ کا مستقبل تجربہ کریں",
+      "cta": "اپنا مفت سفر شروع کریں →"
+    },
+    "nav": {
+      "signin": "سائن ان کریں",
+      "getStarted": "مفت شروع کریں"
+    },
+    "footer": {
+      "subtitle": "آسان پیداواری صلاحیت، خوبصورت ڈیزائن",
+      "poweredBy": "تیار کردہ",
+      "author": "نعمان خالد",
+      "copyright": "© 2025 فلو ٹاسک۔ تمام حقوق محفوظ ہیں۔"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "اپنے اکاؤنٹ میں سائن ان کریں",
+      "email": "ای میل ایڈریس",
+      "password": "پاس ورڈ",
+      "button": "سائن ان",
+      "loading": "سائن ان ہو رہا ہے...",
+      "github": "GitHub کے ساتھ جاری رکھیں",
+      "noAccount": "اکاؤنٹ نہیں ہے؟",
+      "signupLink": "مفت سائن اپ کریں",
+      "divider": "یا جاری رکھیں"
+    },
+    "footer": {
+      "poweredBy": "تیار کردہ",
+      "author": "نعمان خالد"
+    }
+  }
+}

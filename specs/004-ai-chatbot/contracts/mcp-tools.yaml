@@ -1,0 +1,852 @@
+# MCP (Model Context Protocol) Tools Contract
+# Phase III AI Chatbot - Task Management Tools
+
+# This file defines all MCP tools exposed to the OpenAI agent for task operations.
+# Each tool is a stateless function that operates on the PostgreSQL database.
+
+# Tool Format:
+# - name: Unique tool identifier
+# - description: Natural language description for AI understanding
+# - parameters: JSON Schema defining input parameters
+# - returns: Expected return type and structure
+# - examples: Sample invocations and results
+
+tools:
+  # =====================================================================
+  # BASIC TASK OPERATIONS (Core CRUD)
+  # =====================================================================
+
+  - name: add_task
+    description: |
+      Create a new task for the user.
+
+      **When to use**:
+      - User says "add", "create", "remember", "new task"
+      - Examples: "Add buy groceries", "Create task call mom", "Remember to email John"
+
+      **Important**:
+      - Extract task title from user message (remove command words like "add", "create")
+      - Set default priority to "medium" unless user specifies
+      - Tags are optional (empty array if not mentioned)
+    parameters:
+      type: object
+      required:
+        - user_id
+        - title
+      properties:
+        user_id:
+          type: integer
+          description: |
+            Authenticated user ID (automatically injected by backend).
+
+            **AI must NOT provide this** - backend will inject current user's ID for security.
+          example: 5
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: |
+            Task title extracted from user message.
+
+            **Rules**:
+            - Remove command words: "Add buy groceries" → title: "buy groceries"
+            - Capitalize first letter for consistency
+            - Maximum 200 characters (truncate if longer)
+          example: "Buy groceries"
+        description:
+          type: string
+          maxLength: 2000
+          default: ""
+          description: |
+            Optional detailed description of the task.
+
+            **When to use**:
+            - User provides details: "Add buy groceries with description get milk and eggs"
+            - Otherwise leave empty string
+          example: "Get milk, eggs, bread, and cheese"
+        priority:
+          type: string
+          enum: [high, medium, low]
+          default: "medium"
+          description: |
+            Task priority level.
+
+            **Detection rules**:
+            - User says "urgent", "important", "ASAP" → "high"
+            - User says "low priority", "when I have time" → "low"
+            - Default → "medium"
+          example: "medium"
+        tags:
+          type: array
+          items:
+            type: string
+          default: []
+          description: |
+            Array of tags/categories for task organization.
+
+            **Detection rules**:
+            - User says "tag as work" → ["work"]
+            - User says "work and urgent tags" → ["work", "urgent"]
+            - No mention → []
+          example: ["shopping", "groceries"]
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, error]
+          example: "success"
+        task_id:
+          type: integer
+          description: ID of newly created task
+          example: 15
+        message:
+          type: string
+          description: Confirmation message for AI to communicate to user
+          example: "Created task 'Buy groceries' with ID 15"
+    examples:
+      - input:
+          user_id: 5
+          title: "Buy groceries"
+          description: ""
+          priority: "medium"
+          tags: []
+        output:
+          status: "success"
+          task_id: 15
+          message: "Created task 'Buy groceries' with ID 15"
+
+  - name: list_tasks
+    description: |
+      Retrieve user's tasks with optional filtering.
+
+      **When to use**:
+      - User says "show", "list", "what are my tasks", "view tasks"
+      - Examples: "Show my tasks", "What do I need to do?", "List all pending tasks"
+
+      **Filtering**:
+      - status: "all" (default), "pending", "completed"
+      - priority: null (all priorities), "high", "medium", "low"
+      - tags: null (all tags), ["work"], ["personal", "urgent"]
+    parameters:
+      type: object
+      required:
+        - user_id
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        status:
+          type: string
+          enum: [all, pending, completed]
+          default: "all"
+          description: |
+            Filter by completion status.
+
+            **Detection rules**:
+            - User says "pending", "todo", "incomplete" → "pending"
+            - User says "completed", "done", "finished" → "completed"
+            - Default → "all"
+          example: "pending"
+        priority:
+          type: string
+          enum: [high, medium, low]
+          nullable: true
+          default: null
+          description: |
+            Filter by priority level (null = all priorities).
+
+            **Detection rules**:
+            - User says "high priority tasks" → "high"
+            - No priority mentioned → null
+          example: null
+        tags:
+          type: array
+          items:
+            type: string
+          nullable: true
+          default: null
+          description: |
+            Filter by tags (null = all tags, array = tasks with ANY of these tags).
+
+            **Detection rules**:
+            - User says "work tasks" → ["work"]
+            - User says "work or personal" → ["work", "personal"]
+            - No tags mentioned → null
+          example: ["work"]
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, error]
+        tasks:
+          type: array
+          description: Array of tasks matching filters
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 15
+              title:
+                type: string
+                example: "Buy groceries"
+              description:
+                type: string
+                example: "Get milk, eggs, bread"
+              completed:
+                type: boolean
+                example: false
+              priority:
+                type: string
+                example: "medium"
+              tags:
+                type: array
+                items:
+                  type: string
+                example: ["shopping"]
+              created_at:
+                type: string
+                format: date-time
+                example: "2025-12-13T10:30:00Z"
+        count:
+          type: integer
+          description: Number of tasks returned
+          example: 1
+        message:
+          type: string
+          example: "Found 1 task"
+    examples:
+      - input:
+          user_id: 5
+          status: "pending"
+          priority: null
+          tags: null
+        output:
+          status: "success"
+          tasks:
+            - id: 15
+              title: "Buy groceries"
+              description: "Get milk, eggs, bread"
+              completed: false
+              priority: "medium"
+              tags: ["shopping"]
+              created_at: "2025-12-13T10:30:00Z"
+          count: 1
+          message: "Found 1 pending task"
+
+  - name: complete_task
+    description: |
+      Mark a task as complete (or toggle back to incomplete).
+
+      **When to use**:
+      - User says "done", "complete", "finish", "mark as complete"
+      - Examples: "Mark task 5 as done", "I finished the groceries task", "Complete task 3"
+
+      **Important**:
+      - If user doesn't provide task ID, use search_tasks or list_tasks first to find it
+      - If multiple tasks match, ask user for clarification (provide task IDs)
+    parameters:
+      type: object
+      required:
+        - user_id
+        - task_id
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        task_id:
+          type: integer
+          description: |
+            ID of task to mark complete.
+
+            **How to obtain**:
+            - User provides: "Complete task 5" → task_id: 5
+            - User describes: "Complete the groceries task" → search_tasks first, get ID
+          example: 15
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, error]
+        task_id:
+          type: integer
+        completed:
+          type: boolean
+          description: New completion status (true if now completed)
+        message:
+          type: string
+          example: "Marked task 15 'Buy groceries' as complete"
+    examples:
+      - input:
+          user_id: 5
+          task_id: 15
+        output:
+          status: "success"
+          task_id: 15
+          completed: true
+          message: "Marked task 15 'Buy groceries' as complete"
+
+  - name: delete_task
+    description: |
+      Permanently delete a task.
+
+      **When to use**:
+      - User says "delete", "remove", "cancel", "get rid of"
+      - Examples: "Delete task 5", "Remove the meeting task", "Cancel that task"
+
+      **Important**:
+      - Deletion is permanent (no undo in Phase III)
+      - If user doesn't provide task ID, search first
+      - Confirm deletion in response: "Deleted task 5 'Buy groceries'"
+    parameters:
+      type: object
+      required:
+        - user_id
+        - task_id
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        task_id:
+          type: integer
+          description: ID of task to delete
+          example: 15
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, error]
+        task_id:
+          type: integer
+        message:
+          type: string
+          example: "Deleted task 15 'Buy groceries'"
+    examples:
+      - input:
+          user_id: 5
+          task_id: 15
+        output:
+          status: "success"
+          task_id: 15
+          message: "Deleted task 15 'Buy groceries'"
+
+  - name: update_task
+    description: |
+      Update task title, description, priority, or tags.
+
+      **When to use**:
+      - User says "change", "update", "rename", "modify", "edit"
+      - Examples: "Change task 5 to 'Buy groceries and fruits'", "Update task 3 description"
+
+      **Important**:
+      - Only provide fields that are changing (others will remain unchanged)
+      - If user doesn't provide task ID, search first
+    parameters:
+      type: object
+      required:
+        - user_id
+        - task_id
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        task_id:
+          type: integer
+          description: ID of task to update
+          example: 15
+        title:
+          type: string
+          maxLength: 200
+          nullable: true
+          default: null
+          description: New task title (null = no change)
+          example: "Buy groceries and fruits"
+        description:
+          type: string
+          maxLength: 2000
+          nullable: true
+          default: null
+          description: New description (null = no change)
+          example: "Get apples, bananas, oranges"
+        priority:
+          type: string
+          enum: [high, medium, low]
+          nullable: true
+          default: null
+          description: New priority (null = no change)
+          example: "high"
+        tags:
+          type: array
+          items:
+            type: string
+          nullable: true
+          default: null
+          description: |
+            New tags array (null = no change, [] = remove all tags, ["work"] = replace with new tags).
+
+            **Important**: This REPLACES tags, doesn't add. Use manage_tags to add/remove.
+          example: ["shopping", "groceries"]
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, error]
+        task_id:
+          type: integer
+        updated_fields:
+          type: array
+          items:
+            type: string
+          description: List of fields that were updated
+          example: ["title", "priority"]
+        message:
+          type: string
+          example: "Updated task 15: changed title to 'Buy groceries and fruits', set priority to high"
+    examples:
+      - input:
+          user_id: 5
+          task_id: 15
+          title: "Buy groceries and fruits"
+          description: null
+          priority: "high"
+          tags: null
+        output:
+          status: "success"
+          task_id: 15
+          updated_fields: ["title", "priority"]
+          message: "Updated task 15: changed title to 'Buy groceries and fruits', set priority to high"
+
+  # =====================================================================
+  # ADVANCED TASK OPERATIONS (Phase II Integration)
+  # =====================================================================
+
+  - name: set_priority
+    description: |
+      Change task priority (dedicated function for clarity).
+
+      **When to use**:
+      - User explicitly mentions priority change: "Set task 5 to high priority"
+      - Alternative to update_task for priority-only changes
+
+      **Note**: Functionally equivalent to update_task with only priority field.
+    parameters:
+      type: object
+      required:
+        - user_id
+        - task_id
+        - priority
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        task_id:
+          type: integer
+          description: ID of task to update priority
+          example: 15
+        priority:
+          type: string
+          enum: [high, medium, low]
+          description: New priority level
+          example: "high"
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+        task_id:
+          type: integer
+        priority:
+          type: string
+        message:
+          type: string
+          example: "Set task 15 priority to high"
+    examples:
+      - input:
+          user_id: 5
+          task_id: 15
+          priority: "high"
+        output:
+          status: "success"
+          task_id: 15
+          priority: "high"
+          message: "Set task 15 priority to high"
+
+  - name: manage_tags
+    description: |
+      Add or remove tags from a task without replacing all tags.
+
+      **When to use**:
+      - User says "add tag work", "remove tag urgent", "tag as personal"
+      - Examples: "Tag task 5 as work", "Remove urgent tag from task 3"
+
+      **Important**:
+      - Use this instead of update_task when only modifying tags
+      - Can add and remove in same call: tags_to_add: ["work"], tags_to_remove: ["personal"]
+    parameters:
+      type: object
+      required:
+        - user_id
+        - task_id
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        task_id:
+          type: integer
+          description: ID of task to modify tags
+          example: 15
+        tags_to_add:
+          type: array
+          items:
+            type: string
+          default: []
+          description: Tags to add (duplicates ignored)
+          example: ["work", "urgent"]
+        tags_to_remove:
+          type: array
+          items:
+            type: string
+          default: []
+          description: Tags to remove (non-existent tags ignored)
+          example: ["personal"]
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+        task_id:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+          description: Updated tags array after add/remove
+          example: ["shopping", "work", "urgent"]
+        message:
+          type: string
+          example: "Task 15: added tags ['work', 'urgent'], removed tags ['personal']"
+    examples:
+      - input:
+          user_id: 5
+          task_id: 15
+          tags_to_add: ["work", "urgent"]
+          tags_to_remove: ["personal"]
+        output:
+          status: "success"
+          task_id: 15
+          tags: ["shopping", "work", "urgent"]
+          message: "Task 15: added tags ['work', 'urgent'], removed tags ['personal']"
+
+  - name: manage_subtasks
+    description: |
+      Create, complete, or delete subtasks under a parent task.
+
+      **When to use**:
+      - User wants to break down task: "Add subtasks to task 5: research, write, review"
+      - User completes subtask: "Complete the research subtask"
+
+      **Operations**:
+      - add: Create new subtasks
+      - complete: Mark subtask as done
+      - delete: Remove subtask
+    parameters:
+      type: object
+      required:
+        - user_id
+        - parent_task_id
+        - operation
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        parent_task_id:
+          type: integer
+          description: ID of parent task
+          example: 15
+        operation:
+          type: string
+          enum: [add, complete, delete]
+          description: Subtask operation type
+          example: "add"
+        subtask_titles:
+          type: array
+          items:
+            type: string
+          description: |
+            Array of subtask titles to add (required for operation: "add").
+
+            **Example**: User says "Add subtasks: research, write draft, review" →
+            subtask_titles: ["Research", "Write draft", "Review"]
+          example: ["Research topic", "Write draft", "Review and edit"]
+        subtask_id:
+          type: integer
+          nullable: true
+          description: |
+            Subtask ID to complete or delete (required for operation: "complete" or "delete").
+
+            **Note**: Subtasks are tasks with parent_task_id set. Use list_tasks to find subtask IDs.
+          example: 20
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+        parent_task_id:
+          type: integer
+        subtasks:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+              completed:
+                type: boolean
+          description: Updated list of subtasks for parent task
+          example:
+            - id: 20
+              title: "Research topic"
+              completed: false
+            - id: 21
+              title: "Write draft"
+              completed: false
+        message:
+          type: string
+          example: "Added 3 subtasks to task 15"
+    examples:
+      - input:
+          user_id: 5
+          parent_task_id: 15
+          operation: "add"
+          subtask_titles: ["Research topic", "Write draft", "Review and edit"]
+        output:
+          status: "success"
+          parent_task_id: 15
+          subtasks:
+            - id: 20
+              title: "Research topic"
+              completed: false
+            - id: 21
+              title: "Write draft"
+              completed: false
+            - id: 22
+              title: "Review and edit"
+              completed: false
+          message: "Added 3 subtasks to task 15"
+
+  # =====================================================================
+  # SEARCH AND FILTER OPERATIONS
+  # =====================================================================
+
+  - name: search_tasks
+    description: |
+      Search tasks by text query across title and description.
+
+      **When to use**:
+      - User doesn't provide task ID but describes task: "Complete the groceries task"
+      - User wants to find tasks: "Find all tasks about meetings"
+
+      **Important**:
+      - Case-insensitive search
+      - Searches both title and description fields
+      - Returns tasks matching any word in query
+    parameters:
+      type: object
+      required:
+        - user_id
+        - query
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        query:
+          type: string
+          minLength: 1
+          description: |
+            Search query (case-insensitive, searches title and description).
+
+            **Examples**:
+            - "groceries" → finds tasks with "groceries" in title or description
+            - "meeting" → finds all tasks mentioning "meeting"
+          example: "groceries"
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+        tasks:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+              description:
+                type: string
+              completed:
+                type: boolean
+              priority:
+                type: string
+              tags:
+                type: array
+                items:
+                  type: string
+          description: Tasks matching search query
+        count:
+          type: integer
+          description: Number of results found
+        message:
+          type: string
+          example: "Found 2 tasks matching 'groceries'"
+    examples:
+      - input:
+          user_id: 5
+          query: "groceries"
+        output:
+          status: "success"
+          tasks:
+            - id: 15
+              title: "Buy groceries"
+              description: "Get milk, eggs, bread"
+              completed: false
+              priority: "medium"
+              tags: ["shopping"]
+          count: 1
+          message: "Found 1 task matching 'groceries'"
+
+  - name: filter_tasks
+    description: |
+      Advanced task filtering with multiple criteria.
+
+      **When to use**:
+      - User specifies complex filters: "Show me high-priority work tasks that are incomplete"
+      - Combines status, priority, and tag filters
+
+      **Note**: This is a convenience function combining list_tasks filters. Use list_tasks for simpler queries.
+    parameters:
+      type: object
+      required:
+        - user_id
+      properties:
+        user_id:
+          type: integer
+          description: Authenticated user ID (auto-injected)
+          example: 5
+        filters:
+          type: object
+          description: Filter criteria object
+          properties:
+            status:
+              type: string
+              enum: [all, pending, completed]
+              default: "all"
+            priority:
+              type: string
+              enum: [high, medium, low]
+              nullable: true
+              default: null
+            tags:
+              type: array
+              items:
+                type: string
+              nullable: true
+              default: null
+          example:
+            status: "pending"
+            priority: "high"
+            tags: ["work"]
+    returns:
+      type: object
+      properties:
+        status:
+          type: string
+        tasks:
+          type: array
+          items:
+            type: object
+        count:
+          type: integer
+        message:
+          type: string
+          example: "Found 3 high-priority work tasks"
+    examples:
+      - input:
+          user_id: 5
+          filters:
+            status: "pending"
+            priority: "high"
+            tags: ["work"]
+        output:
+          status: "success"
+          tasks:
+            - id: 10
+              title: "Prepare presentation"
+              description: "Q4 results"
+              completed: false
+              priority: "high"
+              tags: ["work"]
+          count: 1
+          message: "Found 1 high-priority pending work task"
+
+# =====================================================================
+# Tool Execution Error Handling
+# =====================================================================
+
+error_responses:
+  task_not_found:
+    status: "error"
+    message: "Task not found. It may have been deleted or you don't have permission to access it."
+    error_code: "TASK_NOT_FOUND"
+
+  invalid_task_id:
+    status: "error"
+    message: "Invalid task ID. Please provide a valid positive integer."
+    error_code: "INVALID_TASK_ID"
+
+  unauthorized:
+    status: "error"
+    message: "You don't have permission to access this task."
+    error_code: "UNAUTHORIZED"
+
+  validation_error:
+    status: "error"
+    message: "Invalid input parameters. Please check your request."
+    error_code: "VALIDATION_ERROR"
+    details: "Field 'title' exceeds maximum length of 200 characters"
+
+  database_error:
+    status: "error"
+    message: "Database error. Please try again."
+    error_code: "DATABASE_ERROR"
+
+# =====================================================================
+# Notes for AI Agent
+# =====================================================================
+
+ai_guidelines:
+  - Always inject user_id from authenticated session (backend responsibility)
+  - If user doesn't provide task ID, use search_tasks to find it first
+  - If multiple tasks match, ask user for clarification (provide IDs)
+  - Confirm destructive operations (delete) in natural language response
+  - Handle tool errors gracefully: "I couldn't find that task. Could you provide the task ID?"
+  - Chain tools when needed: search → complete, list → delete
+  - Be conversational: "I've added 'Buy groceries' to your list!" not "Task created successfully"
+  - Detect language and respond in same language (multi-language support)
+  - If tool returns error, apologize and suggest alternative: "I couldn't complete that task. Would you like me to show your task list?"

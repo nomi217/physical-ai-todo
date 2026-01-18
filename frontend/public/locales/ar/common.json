@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "فلو تاسك",
+    "subtitle": "إنتاجية سهلة، تصميم جميل"
+  },
+  "dashboard": {
+    "stats": {
+      "total": "الإجمالي",
+      "active": "نشط",
+      "completed": "مكتمل"
+    },
+    "createTask": "إنشاء مهمة جديدة",
+    "yourTasks": "مهامك"
+  },
+  "filters": {
+    "title": "المرشحات والبحث",
+    "clearAll": "مسح الكل",
+    "search": "بحث",
+    "searchPlaceholder": "ابحث عن المهام...",
+    "priority": "الأولوية",
+    "allPriorities": "جميع الأولويات",
+    "highPriority": "أولوية عالية",
+    "mediumPriority": "أولوية متوسطة",
+    "lowPriority": "أولوية منخفضة",
+    "status": "الحالة",
+    "allTasks": "جميع المهام",
+    "activeOnly": "النشطة فقط",
+    "completedOnly": "المكتملة فقط",
+    "tags": "الوسوم",
+    "tagsPlaceholder": "عمل، عاجل (مفصولة بفواصل)",
+    "sortBy": "الترتيب حسب",
+    "dateCreated": "تاريخ الإنشاء",
+    "dateUpdated": "تاريخ التحديث",
+    "titleAZ": "العنوان (أ-ي)",
+    "order": "الترتيب",
+    "descending": "تنازلي",
+    "ascending": "تصاعدي"
+  },
+  "taskForm": {
+    "editTask": "تعديل المهمة",
+    "createTask": "إنشاء مهمة جديدة",
+    "title": "العنوان",
+    "titlePlaceholder": "أدخل عنوان المهمة...",
+    "description": "الوصف",
+    "descriptionPlaceholder": "أدخل وصف المهمة...",
+    "priority": "الأولوية",
+    "lowPriority": "أولوية منخفضة",
+    "mediumPriority": "أولوية متوسطة",
+    "highPriority": "أولوية عالية",
+    "tags": "الوسوم",
+    "tagsPlaceholder": "أضف وسوم (اضغط Enter)...",
+    "addTag": "إضافة",
+    "saving": "جاري الحفظ...",
+    "updateTask": "تحديث المهمة",
+    "createTaskButton": "إنشاء المهمة",
+    "cancel": "إلغاء",
+    "titleRequired": "يرجى إدخال عنوان المهمة",
+    "saveFailed": "فشل حفظ المهمة. يرجى المحاولة مرة أخرى."
+  },
+  "taskList": {
+    "noTasks": "لم يتم العثور على أي مهام",
+    "noTasksDesc": "ابدأ بإنشاء مهمة جديدة أعلاه!"
+  },
+  "taskItem": {
+    "high": "أولوية عالية",
+    "medium": "متوسطة",
+    "low": "منخفضة",
+    "created": "تم الإنشاء:",
+    "updated": "تم التحديث:",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleting": "جاري الحذف...",
+    "deleteConfirm": "هل أنت متأكد من رغبتك في حذف هذه المهمة؟",
+    "updateFailed": "فشل تحديث المهمة",
+    "deleteFailed": "فشل حذف المهمة"
+  },
+  "landing": {
+    "hero": {
+      "title1": "إنتاجية سهلة،",
+      "title2": "تصميم جميل",
+      "subtitle": "اختبر مستقبل إدارة المهام",
+      "cta": "ابدأ رحلتك المجانية ←"
+    },
+    "nav": {
+      "signin": "تسجيل الدخول",
+      "getStarted": "ابدأ مجانًا"
+    },
+    "footer": {
+      "subtitle": "إنتاجية سهلة، تصميم جميل",
+      "poweredBy": "مدعوم بواسطة",
+      "author": "نعمان خالد",
+      "copyright": "© 2025 فلو تاسك. جميع الحقوق محفوظة."
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "تسجيل الدخول إلى حسابك",
+      "email": "عنوان البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "button": "تسجيل الدخول",
+      "loading": "جاري تسجيل الدخول...",
+      "github": "المتابعة مع GitHub",
+      "noAccount": "ليس لديك حساب؟",
+      "signupLink": "اشترك مجانًا",
+      "divider": "أو تابع مع"
+    },
+    "footer": {
+      "poweredBy": "مدعوم بواسطة",
+      "author": "نعمان خالد"
+    }
+  }
+}

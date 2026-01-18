@@ -1,0 +1,78 @@
+name: Deploy to Production (DigitalOcean DOKS)
+
+on:
+  push:
+    branches:
+      - main  # Deploy when pushing to main branch
+  workflow_dispatch:  # Allow manual trigger
+
+env:
+  REGISTRY: registry.digitalocean.com
+  REGISTRY_NAME: ${{ secrets.DO_REGISTRY_NAME }}
+  CLUSTER_NAME: ${{ secrets.DO_CLUSTER_NAME }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_API_TOKEN }}
+
+      - name: Log in to DigitalOcean Container Registry
+        run: doctl registry login --expiry-seconds 600
+
+      - name: Build Backend Docker Image
+        run: |
+          docker build -f backend/Dockerfile \
+            -t ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-backend:${{ github.sha }} \
+            -t ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-backend:latest \
+            ./backend
+
+      - name: Build Frontend Docker Image
+        run: |
+          docker build -f specs/004-kubernetes-deployment/docker/frontend.Dockerfile \
+            -t ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-frontend:${{ github.sha }} \
+            -t ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-frontend:latest \
+            .
+
+      - name: Push Images to Registry
+        run: |
+          docker push ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-backend:${{ github.sha }}
+          docker push ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-backend:latest
+          docker push ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-frontend:${{ github.sha }}
+          docker push ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/todo-frontend:latest
+
+      - name: Update kubeconfig
+        run: doctl kubernetes cluster kubeconfig save ${{ env.CLUSTER_NAME }}
+
+      - name: Deploy to Kubernetes
+        run: |
+          # Apply namespace (idempotent)
+          kubectl apply -f kubernetes/production/namespace.yaml
+
+          # Apply configmaps
+          kubectl apply -f kubernetes/production/configmaps/app-config.yaml
+
+          # Apply deployments
+          kubectl apply -f kubernetes/production/deployments/backend.yaml
+          kubectl apply -f kubernetes/production/deployments/frontend.yaml
+
+          # Apply ingress
+          kubectl apply -f kubernetes/production/ingress/nginx-ingress.yaml
+
+      - name: Verify Deployment
+        run: |
+          kubectl rollout status deployment/todo-backend -n production --timeout=5m
+          kubectl rollout status deployment/todo-frontend -n production --timeout=5m
+
+      - name: Get Application URL
+        run: |
+          echo "🚀 Deployment successful!"
+          echo "Application URL:"
+          kubectl get ingress -n production todo-app-ingress -o jsonpath='{.spec.rules[0].host}'
+          echo ""

@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "FlowTask",
+    "subtitle": "Productivité Sans Effort, Design Magnifique"
+  },
+  "dashboard": {
+    "stats": {
+      "total": "Total",
+      "active": "Actif",
+      "completed": "Terminé"
+    },
+    "createTask": "Créer une Nouvelle Tâche",
+    "yourTasks": "Vos Tâches"
+  },
+  "filters": {
+    "title": "Filtres et Recherche",
+    "clearAll": "Effacer Tout",
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher les tâches...",
+    "priority": "Priorité",
+    "allPriorities": "Toutes les Priorités",
+    "highPriority": "Priorité Élevée",
+    "mediumPriority": "Priorité Moyenne",
+    "lowPriority": "Priorité Basse",
+    "status": "Statut",
+    "allTasks": "Toutes les Tâches",
+    "activeOnly": "Actives Uniquement",
+    "completedOnly": "Terminées Uniquement",
+    "tags": "Étiquettes",
+    "tagsPlaceholder": "travail,urgent (séparées par des virgules)",
+    "sortBy": "Trier par",
+    "dateCreated": "Date de Création",
+    "dateUpdated": "Date de Mise à Jour",
+    "titleAZ": "Titre (A-Z)",
+    "order": "Ordre",
+    "descending": "Décroissant",
+    "ascending": "Croissant"
+  },
+  "taskForm": {
+    "editTask": "Modifier la Tâche",
+    "createTask": "Créer une Nouvelle Tâche",
+    "title": "Titre",
+    "titlePlaceholder": "Entrez le titre de la tâche...",
+    "description": "Description",
+    "descriptionPlaceholder": "Entrez la description de la tâche...",
+    "priority": "Priorité",
+    "lowPriority": "Priorité Basse",
+    "mediumPriority": "Priorité Moyenne",
+    "highPriority": "Priorité Élevée",
+    "tags": "Étiquettes",
+    "tagsPlaceholder": "Ajouter des étiquettes (appuyez sur Entrée)...",
+    "addTag": "Ajouter",
+    "saving": "Enregistrement en cours...",
+    "updateTask": "Mettre à Jour la Tâche",
+    "createTaskButton": "Créer la Tâche",
+    "cancel": "Annuler",
+    "titleRequired": "Veuillez entrer un titre de tâche",
+    "saveFailed": "Échec de l'enregistrement de la tâche. Veuillez réessayer."
+  },
+  "taskList": {
+    "noTasks": "Aucune tâche trouvée",
+    "noTasksDesc": "Commencez par créer une nouvelle tâche ci-dessus!"
+  },
+  "taskItem": {
+    "high": "Priorité Élevée",
+    "medium": "Moyen",
+    "low": "Basse",
+    "created": "Créée:",
+    "updated": "Mise à Jour:",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "deleting": "Suppression en cours...",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette tâche?",
+    "updateFailed": "Échec de la mise à jour de la tâche",
+    "deleteFailed": "Échec de la suppression de la tâche"
+  },
+  "landing": {
+    "hero": {
+      "title1": "Productivité Sans Effort,",
+      "title2": "Design Magnifique",
+      "subtitle": "Découvrez l'avenir de la gestion des tâches",
+      "cta": "Commencez Votre Voyage Gratuit →"
+    },
+    "nav": {
+      "signin": "Se Connecter",
+      "getStarted": "Commencer Gratuitement"
+    },
+    "footer": {
+      "subtitle": "Productivité Sans Effort, Design Magnifique",
+      "poweredBy": "Propulsé par",
+      "author": "Nauman Khalid",
+      "copyright": "© 2025 FlowTask. Tous droits réservés."
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Connectez-vous à votre compte",
+      "email": "Adresse E-mail",
+      "password": "Mot de Passe",
+      "button": "Se Connecter",
+      "loading": "Connexion en cours...",
+      "github": "Continuer avec GitHub",
+      "noAccount": "Pas de compte?",
+      "signupLink": "Inscrivez-vous gratuitement",
+      "divider": "ou continuez avec"
+    },
+    "footer": {
+      "poweredBy": "Propulsé par",
+      "author": "Nauman Khalid"
+    }
+  }
+}

@@ -1,0 +1,637 @@
+openapi: 3.0.3
+info:
+  title: Physical AI Todo App API
+  description: |
+    RESTful API for Phase II Full-Stack Todo Application with multi-language support, voice commands, and AI chatbot.
+
+    **Features**:
+    - CRUD operations for tasks
+    - Search, filter, sort capabilities
+    - Priorities (high/medium/low) and tags
+    - Voice command integration
+    - AI chatbot (Claude)
+    - Multi-language support (EN, UR, AR, ES, FR, DE)
+
+  version: 2.0.0
+  contact:
+    name: Nauman Khalid
+    url: https://github.com/nomi217/physical-ai-todo
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+  - url: https://api.todo.example.com
+    description: Production server (to be deployed)
+
+tags:
+  - name: tasks
+    description: Task management operations
+  - name: voice
+    description: Voice command processing
+  - name: chat
+    description: AI chatbot interactions
+
+paths:
+  /api/v1/tasks:
+    get:
+      tags: [tasks]
+      summary: List all tasks
+      description: Retrieve tasks with optional filtering, searching, and sorting
+      operationId: listTasks
+      parameters:
+        - name: search
+          in: query
+          description: Search term for title/description (case-insensitive)
+          schema:
+            type: string
+            example: "groceries"
+        - name: completed
+          in: query
+          description: Filter by completion status
+          schema:
+            type: boolean
+            example: false
+        - name: priority
+          in: query
+          description: Filter by priority level
+          schema:
+            type: string
+            enum: [high, medium, low]
+            example: "high"
+        - name: tags
+          in: query
+          description: Filter by tags (comma-separated)
+          schema:
+            type: string
+            example: "work,urgent"
+        - name: sort
+          in: query
+          description: Sort field
+          schema:
+            type: string
+            enum: [created_at, updated_at, priority, title]
+            default: created_at
+        - name: order
+          in: query
+          description: Sort order
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+        - name: limit
+          in: query
+          description: Maximum number of tasks to return
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+        - name: offset
+          in: query
+          description: Number of tasks to skip
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [tasks]
+      summary: Create a new task
+      description: Add a new task to the list
+      operationId: createTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreate'
+      responses:
+        '201':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/v1/tasks/{taskId}:
+    get:
+      tags: [tasks]
+      summary: Get a single task
+      description: Retrieve task details by ID
+      operationId: getTask
+      parameters:
+        - $ref: '#/components/parameters/TaskId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    put:
+      tags: [tasks]
+      summary: Update a task (full replacement)
+      description: Replace all fields of an existing task
+      operationId: updateTask
+      parameters:
+        - $ref: '#/components/parameters/TaskId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskUpdate'
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    patch:
+      tags: [tasks]
+      summary: Partially update a task
+      description: Update specific fields of an existing task
+      operationId: patchTask
+      parameters:
+        - $ref: '#/components/parameters/TaskId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskPatch'
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags: [tasks]
+      summary: Delete a task
+      description: Permanently remove a task from the system
+      operationId: deleteTask
+      parameters:
+        - $ref: '#/components/parameters/TaskId'
+      responses:
+        '200':
+          description: Task deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Task deleted successfully"
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/v1/voice/transcribe:
+    post:
+      tags: [voice]
+      summary: Transcribe voice to text
+      description: Convert audio to text using speech recognition
+      operationId: transcribeVoice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [audio]
+              properties:
+                audio:
+                  type: string
+                  format: byte
+                  description: Base64-encoded audio data
+                language:
+                  type: string
+                  enum: [en, ur, ar, es, fr, de]
+                  default: en
+                  description: Expected language of audio
+      responses:
+        '200':
+          description: Transcription successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transcript:
+                    type: string
+                    example: "Add task buy milk"
+                  language:
+                    type: string
+                    example: "en"
+                  confidence:
+                    type: number
+                    format: float
+                    minimum: 0
+                    maximum: 1
+                    example: 0.95
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/v1/voice/command:
+    post:
+      tags: [voice]
+      summary: Execute voice command
+      description: Parse and execute a voice command
+      operationId: executeVoiceCommand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transcript, language]
+              properties:
+                transcript:
+                  type: string
+                  example: "Add task buy milk"
+                language:
+                  type: string
+                  enum: [en, ur, ar, es, fr, de]
+                  example: "en"
+      responses:
+        '200':
+          description: Command executed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  action:
+                    type: string
+                    example: "create_task"
+                  result:
+                    type: object
+                    description: Result of the command (varies by action)
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/v1/chat/message:
+    post:
+      tags: [chat]
+      summary: Send message to AI chatbot
+      description: Send a message and receive AI response (streaming)
+      operationId: sendChatMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content, language]
+              properties:
+                content:
+                  type: string
+                  example: "What tasks do I have?"
+                language:
+                  type: string
+                  enum: [en, ur, ar, es, fr, de]
+                  default: en
+      responses:
+        '200':
+          description: Streaming response
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-sent events stream
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /api/v1/chat/history:
+    get:
+      tags: [chat]
+      summary: Get chat history
+      description: Retrieve past chat messages
+      operationId: getChatHistory
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+            maximum: 100
+      responses:
+        '200':
+          description: Chat history retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChatMessage'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags: [chat]
+      summary: Clear chat history
+      description: Delete all chat messages
+      operationId: clearChatHistory
+      responses:
+        '200':
+          description: History cleared
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Chat history cleared"
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+components:
+  parameters:
+    TaskId:
+      name: taskId
+      in: path
+      required: true
+      description: Unique task identifier
+      schema:
+        type: integer
+        minimum: 1
+        example: 1
+
+  schemas:
+    Task:
+      type: object
+      required: [id, title, completed, priority, created_at, updated_at]
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+          example: "Buy groceries"
+        description:
+          type: string
+          maxLength: 2000
+          default: ""
+          example: "Milk, eggs, bread"
+        completed:
+          type: boolean
+          default: false
+          example: false
+        priority:
+          type: string
+          enum: [high, medium, low]
+          default: medium
+          example: "high"
+        tags:
+          type: array
+          items:
+            type: string
+          default: []
+          example: ["shopping", "urgent"]
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-12-07T10:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2025-12-07T10:00:00Z"
+
+    TaskCreate:
+      type: object
+      required: [title]
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+          example: "Buy groceries"
+        description:
+          type: string
+          maxLength: 2000
+          default: ""
+          example: "Milk, eggs, bread"
+        priority:
+          type: string
+          enum: [high, medium, low]
+          default: medium
+          example: "high"
+        tags:
+          type: array
+          items:
+            type: string
+          default: []
+          example: ["shopping", "urgent"]
+
+    TaskUpdate:
+      type: object
+      required: [title, description, priority, tags, completed]
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+          example: "Buy groceries and fruits"
+        description:
+          type: string
+          maxLength: 2000
+          example: "Milk, eggs, bread, apples"
+        priority:
+          type: string
+          enum: [high, medium, low]
+          example: "medium"
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["shopping"]
+        completed:
+          type: boolean
+          example: true
+
+    TaskPatch:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+          example: "Buy groceries"
+        description:
+          type: string
+          maxLength: 2000
+          example: "Milk, eggs, bread"
+        priority:
+          type: string
+          enum: [high, medium, low]
+          example: "high"
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["shopping", "urgent"]
+        completed:
+          type: boolean
+          example: false
+
+    TaskListResponse:
+      type: object
+      required: [tasks, total, limit, offset]
+      properties:
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        total:
+          type: integer
+          example: 100
+          description: Total number of tasks matching filters
+        limit:
+          type: integer
+          example: 50
+        offset:
+          type: integer
+          example: 0
+
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        role:
+          type: string
+          enum: [user, assistant]
+          example: "user"
+        content:
+          type: string
+          example: "What tasks do I have?"
+        language:
+          type: string
+          enum: [en, ur, ar, es, fr, de]
+          example: "en"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-12-07T10:00:00Z"
+
+    Error:
+      type: object
+      required: [error, message]
+      properties:
+        error:
+          type: string
+          example: "validation_error"
+        message:
+          type: string
+          example: "Title cannot be empty"
+        details:
+          type: object
+          description: Additional error details
+
+  responses:
+    BadRequest:
+      description: Bad request - invalid input
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "bad_request"
+            message: "Invalid query parameters"
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "not_found"
+            message: "Task with ID 999 not found"
+
+    ValidationError:
+      description: Validation error - request body fails validation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "validation_error"
+            message: "Title cannot be empty"
+            details:
+              field: "title"
+              constraint: "minLength"
+
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "internal_error"
+            message: "An unexpected error occurred"
